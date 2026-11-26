@@ -1,6 +1,6 @@
 # elemental-avatars
 
-Lightweight, zero-dependency HTML5 Canvas 2D elemental effects for websites — **fire, water, ice, grass, sand/stone, cosmic, lightning, aurora, smoke, and void** — with **30 curated templates**, live toggling, adjustable pointer reactivity, dark/light theme adaptation, tree-shakable subpath exports, and a drop-in `<elemental-fx>` Web Component.
+Lightweight, zero-dependency HTML5 Canvas 2D elemental effects for websites — **fire, water, ice, grass, sand/stone, cosmic, lightning, aurora, smoke, and void** with **30 curated templates**, live toggling, adjustable pointer reactivity, dark/light theme adaptation, tree-shakable subpath exports, and a drop-in `<elemental-fx>` Web Component all of which you can use with a simple code snippet and endless combinations.
 
 ## Highlights
 
@@ -305,9 +305,13 @@ npm run build:playground # Build static playground & demo site
 
 ---
 
+## Demo Video
+
+https://github.com/user-attachments/assets/efdaa816-2746-44c5-b81a-5bc967ae77eb
+
 ## Author
 
-Created by **Pranesh Rajeswaran** — [Portfolio](https://praneshrajeswaran.vercel.app/) · [GitHub](https://github.com/Pranesh1801)
+Created by **Pranesh Rajeswaran** — [Portfolio](https://praneshrajeswaran.vercel.app/)
 
 ## License
 
