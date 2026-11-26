@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aether Studio — Elementals Integration Example Site</title>
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body data-mode="dark">
+    <!-- Optional fullscreen ambient overlay (controlled by floating bar) -->
+    <elemental-fx
+      id="ambient-overlay"
+      fullscreen
+      element="cosmic"
+      preset="starfield"
+      opacity="0.45"
+      theme="dark"
+      paused
+      style="display: none; z-index: 40"
+    ></elemental-fx>
+
+    <nav class="navbar">
+      <div class="nav-inner">
+        <a class="brand" href="#top">
+          <span class="brand-dot"></span>
+          <span>Aether Studio</span>
+        </a>
+        <div class="nav-links">
+          <a href="#hero-section">Hero</a>
+          <a href="#layering-section">Layering</a>
+          <a href="#cards-section">Scoped Cards</a>
+          <a href="#longform-section">Scroll Test</a>
+        </div>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="nav-btn" type="button">☀️ Light Mode</button>
+          <a class="nav-btn nav-btn-primary" href="./index.html">← Playground</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 1. HERO SECTION WITH SCOPED ELEMENTAL BACKGROUND -->
+    <section id="hero-section" class="hero-band">
+      <elemental-fx
+        id="hero-fx"
+        class="hero-stage"
+        element="aurora"
+        preset="silk"
+        opacity="0.85"
+        interaction-strength="1.2"
+        theme="dark"
+      >
+        <div class="container hero-content">
+          <span class="eyebrow">Live Integration Showcase · Dark &amp; Light Mode</span>
+          <h1>Atmosphere that adapts to real websites.</h1>
+          <p class="lead">
+            This is a real multi-section, scrollable page built to test how <code>elementals</code>
+            behaves inside heroes, feature cards, stacked multi-element layers, and fullscreen
+            overlays across both dark and light themes.
+          </p>
+          <div class="hero-switcher">
+            <span class="switcher-label">Hero template:</span>
+            <button class="chip active" data-hero="aurora:silk" type="button">Aurora · Silk</button>
+            <button class="chip" data-hero="fire:embers" type="button">Fire · Embers</button>
+            <button class="chip" data-hero="lightning:arcs" type="button">Lightning · Arcs</button>
+            <button class="chip" data-hero="ice:crystals" type="button">Ice · Crystals</button>
+            <button class="chip" data-hero="void:singularity" type="button">Void · Singularity</button>
+            <button class="chip" data-hero="smoke:incense" type="button">Smoke · Incense</button>
+          </div>
+        </div>
+      </elemental-fx>
+    </section>
+
+    <!-- 2. MULTI-LAYER COMBINATION LAB -->
+    <section id="layering-section" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Composable by Design</span>
+          <h2>Layer 2+ templates together — zero extra config</h2>
+          <p>
+            Every <code>&lt;elemental-fx&gt;</code> canvas is transparent and pointer-passthrough, so
+            users can stack multiple templates in the same hero or page to create custom combos.
+          </p>
+        </div>
+
+        <div class="layer-demo-grid">
+          <div class="layer-stage" id="layer-stage">
+            <elemental-fx
+              id="layer-a"
+              class="layer-canvas"
+              element="water"
+              preset="rain"
+              opacity="0.75"
+              theme="dark"
+            ></elemental-fx>
+            <elemental-fx
+              id="layer-b"
+              class="layer-canvas"
+              element="lightning"
+              preset="storm"
+              opacity="0.9"
+              theme="dark"
+            ></elemental-fx>
+            <div class="layer-caption">
+              <strong id="layer-title">Thunderstorm</strong>
+              <span id="layer-sub">water:rain + lightning:storm</span>
+            </div>
+          </div>
+
+          <div class="layer-controls">
+            <div class="combo-list">
+              <button class="combo-btn active" data-combo="thunderstorm" type="button">
+                <strong>⛈️ Thunderstorm</strong>
+                <span>Water (Rain) + Lightning (Storm)</span>
+              </button>
+              <button class="combo-btn" data-combo="volcanic" type="button">
+                <strong>🌋 Volcanic Ash</strong>
+                <span>Fire (Inferno) + Sand (Stone Shards)</span>
+              </button>
+              <button class="combo-btn" data-combo="frost-aurora" type="button">
+                <strong>❄️ Frozen Aurora</strong>
+                <span>Aurora (Northern) + Ice (Crystals)</span>
+              </button>
+              <button class="combo-btn" data-combo="dark-mist" type="button">
+                <strong>🕳️ Void Mist</strong>
+                <span>Smoke (Wisps) + Void (Singularity)</span>
+              </button>
+            </div>
+
+            <div class="layer-toggles">
+              <label><input id="toggle-layer-a" type="checkbox" checked /> Layer 1 active</label>
+              <label><input id="toggle-layer-b" type="checkbox" checked /> Layer 2 active</label>
+            </div>
+
+            <pre class="mini-code"><code id="layer-snippet"></code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SCOPED FEATURE CARDS -->
+    <section id="cards-section" class="section-block section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Container-Scoped Cards</span>
+          <h2>Subtle motion inside individual components</h2>
+          <p>
+            Wrap any card or banner with <code>&lt;elemental-fx&gt;</code> — effects automatically
+            clip to the container, scale with <code>ResizeObserver</code>, and stay behind your text.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <elemental-fx
+            class="fx-card"
+            element="grass"
+            preset="fireflies"
+            opacity="0.7"
+            density="0.8"
+            theme="dark"
+          >
+            <div class="card-body">
+              <span class="card-tag">grass · fireflies</span>
+              <h3>Living Botanical UI</h3>
+              <p>
+                Hover across this card — fireflies gently orbit your cursor while keeping headlines
+                and body copy crisp and readable.
+              </p>
+            </div>
+          </elemental-fx>
+
+          <elemental-fx
+            class="fx-card"
+            element="void"
+            preset="antimatter"
+            opacity="0.75"
+            density="0.8"
+            theme="dark"
+          >
+            <div class="card-body">
+              <span class="card-tag">void · antimatter</span>
+              <h3>Zero-Dependency Core</h3>
+              <p>
+                Import only the elements you use with subpath exports like
+                <code>elementals/core</code> and <code>elementals/void</code>.
+              </p>
+            </div>
+          </elemental-fx>
+
+          <elemental-fx
+            class="fx-card"
+            element="sand"
+            preset="dust"
+            opacity="0.75"
+            density="0.9"
+            theme="dark"
+          >
+            <div class="card-body">
+              <span class="card-tag">sand · dust</span>
+              <h3>Accessible by Default</h3>
+              <p>
+                Automatically pauses on hidden tabs and renders a calm static frame when users
+                enable <code>prefers-reduced-motion</code>.
+              </p>
+            </div>
+          </elemental-fx>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LONG SCROLLING CONTENT SECTION -->
+    <section id="longform-section" class="section-block">
+      <div class="container prose-grid">
+        <div>
+          <span class="eyebrow">Real-World Scroll &amp; Contrast Test</span>
+          <h2>Test fullscreen overlays while scrolling long pages</h2>
+          <p>
+            Use the floating tester bar at the bottom right to toggle a fixed fullscreen elemental
+            overlay on top of this page, then scroll up and down and flip between Dark and Light
+            mode.
+          </p>
+          <p>
+            Notice how <code>theme="light"</code> switches additive glow modes to clean alpha
+            compositing and deeper palettes so effects stay crisp on white backgrounds instead of
+            washing out.
+          </p>
+        </div>
+        <div class="spec-list">
+          <div class="spec-item">
+            <strong>Pointer passthrough</strong>
+            <span>All canvases use <code>pointer-events: none</code> so buttons, links, and text selection never break.</span>
+          </div>
+          <div class="spec-item">
+            <strong>HiDPI / Retina ready</strong>
+            <span>Device pixel ratio is capped at 2x so shapes stay razor-sharp without draining laptop batteries.</span>
+          </div>
+          <div class="spec-item">
+            <strong>Framework agnostic</strong>
+            <span>Use vanilla TypeScript, React, Vue, Svelte, Astro, or plain HTML via <code>&lt;elemental-fx&gt;</code>.</span>
+          </div>
+          <div class="spec-item">
+            <strong>Tree-shakable subpaths</strong>
+            <span>Import the full pack from <code>elementals</code> or cherry-pick single elements like <code>elementals/aurora</code>.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>Built to test <strong>elementals</strong> by Pranesh Rajeswaran</span>
+        <a href="./index.html">Back to Interactive Playground →</a>
+      </div>
+    </footer>
+
+    <!-- FLOATING FULLSCREEN OVERLAY TESTER -->
+    <div class="overlay-dock" aria-label="Fullscreen Overlay Tester">
+      <label class="dock-toggle">
+        <input id="overlay-enable" type="checkbox" />
+        <span>Fullscreen Overlay</span>
+      </label>
+      <select id="overlay-element" aria-label="Overlay Element"></select>
+      <label class="dock-opacity">
+        <span>Alpha</span>
+        <input id="overlay-opacity" type="range" min="0.1" max="1" step="0.05" value="0.45" />
+      </label>
+    </div>
+
+    <script type="module" src="./demo.ts"></script>
+  </body>
+</html>

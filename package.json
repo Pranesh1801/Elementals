@@ -1,0 +1,205 @@
+{
+  "name": "elementals",
+  "version": "1.0.0",
+  "description": "Lightweight, zero-dependency Canvas 2D elemental effects (fire, water, ice, grass, sand, cosmic, lightning, aurora, smoke, void) with customizable presets, subpath exports, and a drop-in Web Component.",
+  "author": {
+    "name": "Pranesh Rajeswaran",
+    "email": "rspranesh18@gmail.com",
+    "url": "https://praneshrajeswaran.vercel.app/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pranesh1801/Elementals.git"
+  },
+  "homepage": "https://github.com/Pranesh1801/Elementals#readme",
+  "bugs": {
+    "url": "https://github.com/Pranesh1801/Elementals/issues"
+  },
+  "keywords": [
+    "canvas",
+    "particles",
+    "effects",
+    "elementals",
+    "fire",
+    "water",
+    "ice",
+    "grass",
+    "sand",
+    "cosmic",
+    "lightning",
+    "aurora",
+    "smoke",
+    "void",
+    "web-component",
+    "animation",
+    "background"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "module",
+  "sideEffects": [
+    "./src/elements/index.ts",
+    "./src/web-component-entry.ts",
+    "./dist/index.js",
+    "./dist/index.cjs",
+    "./dist/web-component.js",
+    "./dist/web-component.cjs"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./core": {
+      "import": {
+        "types": "./dist/core.d.ts",
+        "default": "./dist/core.js"
+      },
+      "require": {
+        "types": "./dist/core.d.cts",
+        "default": "./dist/core.cjs"
+      }
+    },
+    "./web-component": {
+      "import": {
+        "types": "./dist/web-component.d.ts",
+        "default": "./dist/web-component.js"
+      },
+      "require": {
+        "types": "./dist/web-component.d.cts",
+        "default": "./dist/web-component.cjs"
+      }
+    },
+    "./fire": {
+      "import": {
+        "types": "./dist/elements/fire.d.ts",
+        "default": "./dist/elements/fire.js"
+      },
+      "require": {
+        "types": "./dist/elements/fire.d.cts",
+        "default": "./dist/elements/fire.cjs"
+      }
+    },
+    "./water": {
+      "import": {
+        "types": "./dist/elements/water.d.ts",
+        "default": "./dist/elements/water.js"
+      },
+      "require": {
+        "types": "./dist/elements/water.d.cts",
+        "default": "./dist/elements/water.cjs"
+      }
+    },
+    "./ice": {
+      "import": {
+        "types": "./dist/elements/ice.d.ts",
+        "default": "./dist/elements/ice.js"
+      },
+      "require": {
+        "types": "./dist/elements/ice.d.cts",
+        "default": "./dist/elements/ice.cjs"
+      }
+    },
+    "./grass": {
+      "import": {
+        "types": "./dist/elements/grass.d.ts",
+        "default": "./dist/elements/grass.js"
+      },
+      "require": {
+        "types": "./dist/elements/grass.d.cts",
+        "default": "./dist/elements/grass.cjs"
+      }
+    },
+    "./sand": {
+      "import": {
+        "types": "./dist/elements/sand.d.ts",
+        "default": "./dist/elements/sand.js"
+      },
+      "require": {
+        "types": "./dist/elements/sand.d.cts",
+        "default": "./dist/elements/sand.cjs"
+      }
+    },
+    "./cosmic": {
+      "import": {
+        "types": "./dist/elements/cosmic.d.ts",
+        "default": "./dist/elements/cosmic.js"
+      },
+      "require": {
+        "types": "./dist/elements/cosmic.d.cts",
+        "default": "./dist/elements/cosmic.cjs"
+      }
+    },
+    "./lightning": {
+      "import": {
+        "types": "./dist/elements/lightning.d.ts",
+        "default": "./dist/elements/lightning.js"
+      },
+      "require": {
+        "types": "./dist/elements/lightning.d.cts",
+        "default": "./dist/elements/lightning.cjs"
+      }
+    },
+    "./aurora": {
+      "import": {
+        "types": "./dist/elements/aurora.d.ts",
+        "default": "./dist/elements/aurora.js"
+      },
+      "require": {
+        "types": "./dist/elements/aurora.d.cts",
+        "default": "./dist/elements/aurora.cjs"
+      }
+    },
+    "./smoke": {
+      "import": {
+        "types": "./dist/elements/smoke.d.ts",
+        "default": "./dist/elements/smoke.js"
+      },
+      "require": {
+        "types": "./dist/elements/smoke.d.cts",
+        "default": "./dist/elements/smoke.cjs"
+      }
+    },
+    "./void": {
+      "import": {
+        "types": "./dist/elements/void.d.ts",
+        "default": "./dist/elements/void.js"
+      },
+      "require": {
+        "types": "./dist/elements/void.d.cts",
+        "default": "./dist/elements/void.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsup",
+    "build:playground": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "vitest": "^2.1.8"
+  }
+}

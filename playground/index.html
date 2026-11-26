@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>elementals — Interactive Playground</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-theme="cosmic" data-mode="dark">
+    <elemental-fx id="stage" fullscreen element="cosmic" preset="starfield" theme="dark"></elemental-fx>
+
+    <main class="shell">
+      <header class="hero">
+        <div class="badge">elementals v1.0.0 · 10 Elements · 30 Presets</div>
+        <h1>Elemental effects,<br />ready to drop in.</h1>
+        <p id="hero-desc" class="subtitle">
+          Minimalist Canvas 2D effects for modern websites. Switch elements, tune pointer reactivity,
+          experiment with custom RGB palettes, and copy the snippet.
+        </p>
+        <div class="hero-actions">
+          <button id="toggle-panel-btn" class="btn btn-ghost" type="button">Hide Controls</button>
+          <button id="pause-btn" class="btn btn-ghost" type="button">Pause</button>
+          <button id="mode-btn" class="btn btn-ghost" type="button">Light Mode</button>
+          <a href="./demo.html" class="btn btn-accent">Open Example Site ↗</a>
+        </div>
+      </header>
+
+      <aside id="panel" class="panel" aria-label="Effect Controls">
+        <section class="section">
+          <div class="section-head">
+            <span class="label">Element</span>
+            <span id="particle-badge" class="pill">0 particles</span>
+          </div>
+          <div id="element-grid" class="element-grid"></div>
+        </section>
+
+        <section class="section">
+          <span class="label">Template Preset</span>
+          <div id="preset-row" class="preset-row"></div>
+          <p id="preset-desc" class="preset-desc"></p>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <span class="label">Color Palette</span>
+            <button id="reset-colors-btn" class="btn-link" type="button" hidden>Reset</button>
+          </div>
+          <div id="mood-row" class="mood-row">
+            <button class="mood-btn active" data-mood="default" type="button">Preset</button>
+            <button class="mood-btn" data-mood="neon" type="button">Neon</button>
+            <button class="mood-btn" data-mood="cyber" type="button">Cyber</button>
+            <button class="mood-btn" data-mood="mono" type="button">Mono</button>
+          </div>
+          <div id="swatch-row" class="swatch-row"></div>
+        </section>
+
+        <section class="section sliders">
+          <label class="slider-row">
+            <span>Density</span>
+            <input id="density-input" type="range" min="0.2" max="2.5" step="0.1" value="1" />
+            <output id="density-val">1.0x</output>
+          </label>
+          <label class="slider-row">
+            <span>Speed</span>
+            <input id="speed-input" type="range" min="0.2" max="2.5" step="0.05" value="1" />
+            <output id="speed-val">1.0x</output>
+          </label>
+          <label class="slider-row">
+            <span>Wind</span>
+            <input id="wind-input" type="range" min="-2.5" max="2.5" step="0.05" value="0.04" />
+            <output id="wind-val">0.04</output>
+          </label>
+          <label class="slider-row">
+            <span>Opacity</span>
+            <input id="opacity-input" type="range" min="0.1" max="1" step="0.05" value="1" />
+            <output id="opacity-val">100%</output>
+          </label>
+
+          <label class="toggle-row">
+            <input id="interactive-input" type="checkbox" checked />
+            <span>Pointer interaction</span>
+          </label>
+
+          <label id="sensitivity-wrap" class="slider-row sensitivity-row">
+            <span>Sensitivity</span>
+            <input id="sensitivity-input" type="range" min="0.2" max="3" step="0.1" value="1" />
+            <output id="sensitivity-val">1.0x</output>
+          </label>
+        </section>
+
+        <section class="section code-section">
+          <div class="section-head">
+            <div class="code-tabs">
+              <button class="tab active" data-tab="js" type="button">JS / TS</button>
+              <button class="tab" data-tab="html" type="button">Web Component</button>
+            </div>
+            <button id="copy-btn" class="btn-copy" type="button">Copy</button>
+          </div>
+          <pre class="code-box"><code id="code-output"></code></pre>
+        </section>
+      </aside>
+    </main>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
