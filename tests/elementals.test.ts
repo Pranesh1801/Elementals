@@ -49,7 +49,16 @@ function createMockContext2D(): CanvasRenderingContext2D {
   } as unknown as CanvasRenderingContext2D;
 }
 
-describe('elementals registry & presets', () => {
+describe('elemental-avatars registry & presets', () => {
+  beforeEach(() => {
+    const mockCtx = createMockContext2D();
+    vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(mockCtx as any);
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('registers all 10 core elements with 3 presets each', () => {
     expect(ELEMENT_NAMES).toEqual([
       'fire',
@@ -238,6 +247,27 @@ describe('ElementalEngine lifecycle, reduced-motion, theming, and layering', () 
     expect(container.querySelectorAll('canvas').length).toBe(1);
     storm.destroy();
     expect(container.querySelectorAll('canvas').length).toBe(0);
+  });
+
+  it('safely handles NaN or non-finite numeric options without corrupting state', () => {
+    const fx = createElemental({
+      element: 'fire',
+      density: Number.NaN,
+      speed: Number.POSITIVE_INFINITY,
+      wind: Number.NaN,
+      opacity: Number.NaN,
+      interactionStrength: Number.NaN,
+      count: Number.NaN,
+    });
+
+    const state = fx.getState();
+    expect(Number.isFinite(state.density)).toBe(true);
+    expect(Number.isFinite(state.speed)).toBe(true);
+    expect(Number.isFinite(state.wind)).toBe(true);
+    expect(Number.isFinite(state.opacity)).toBe(true);
+    expect(Number.isFinite(state.interactionStrength)).toBe(true);
+    expect(state.count).toBeUndefined();
+    fx.destroy();
   });
 
   it('supports tree-shakable core API with a direct ElementDefinition object', () => {

@@ -17,6 +17,10 @@ const REFERENCE_AREA = 1280 * 720;
 const MAX_SECONDARY_PARTICLES = 180;
 const MAX_DT = 0.05;
 
+function finiteNumber(value: number | null | undefined, fallback: number): number {
+  return typeof value === 'number' && Number.isFinite(value) ? value : fallback;
+}
+
 export class ElementalEngine implements ElementalController {
   public canvas: HTMLCanvasElement | null = null;
 
@@ -65,10 +69,11 @@ export class ElementalEngine implements ElementalController {
     this.elementDef = getElementDefinition(elementTarget);
     this.presetConfig = resolvePreset(this.elementDef, options.preset);
 
-    this.density = clamp(options.density ?? 1, 0.1, 5);
-    this.explicitCount = options.count ?? undefined;
+    this.density = clamp(finiteNumber(options.density, 1), 0.1, 5);
+    this.explicitCount =
+      typeof options.count === 'number' && Number.isFinite(options.count) ? options.count : undefined;
 
-    if (options.speed !== undefined && options.speed !== null) {
+    if (typeof options.speed === 'number' && Number.isFinite(options.speed)) {
       this.speed = clamp(options.speed, 0, 5);
       this.customSpeed = true;
     } else {
@@ -76,7 +81,7 @@ export class ElementalEngine implements ElementalController {
       this.customSpeed = false;
     }
 
-    if (options.wind !== undefined && options.wind !== null) {
+    if (typeof options.wind === 'number' && Number.isFinite(options.wind)) {
       this.wind = options.wind;
       this.customWind = true;
     } else {
@@ -84,11 +89,11 @@ export class ElementalEngine implements ElementalController {
       this.customWind = false;
     }
 
-    this.opacity = clamp(options.opacity ?? 1, 0, 1);
+    this.opacity = clamp(finiteNumber(options.opacity, 1), 0, 1);
     this.customColors =
       options.colors && options.colors.length > 0 ? [...options.colors] : undefined;
     this.interactive = options.interactive ?? true;
-    this.interactionStrength = clamp(options.interactionStrength ?? 1, 0, 3);
+    this.interactionStrength = clamp(finiteNumber(options.interactionStrength, 1), 0, 3);
     this.theme = options.theme === 'light' ? 'light' : 'dark';
     this.respectReducedMotion = options.respectReducedMotion ?? true;
     this.zIndex = options.zIndex ?? 0;

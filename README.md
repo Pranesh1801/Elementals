@@ -1,4 +1,4 @@
-# Elementals
+# elemental-avatars
 
 Lightweight, zero-dependency HTML5 Canvas 2D elemental effects for websites — **fire, water, ice, grass, sand/stone, cosmic, lightning, aurora, smoke, and void** — with **30 curated templates**, live toggling, adjustable pointer reactivity, dark/light theme adaptation, tree-shakable subpath exports, and a drop-in `<elemental-fx>` Web Component.
 
@@ -17,10 +17,8 @@ Lightweight, zero-dependency HTML5 Canvas 2D elemental effects for websites — 
 ## Installation
 
 ```bash
-npm install elementals
+npm install elemental-avatars
 ```
-
-> **Note:** Replace `elementals` with the final published npm package name if using a scoped or alternate name.
 
 ---
 
@@ -29,7 +27,7 @@ npm install elementals
 ### 1. Vanilla JavaScript / TypeScript (Fullscreen or Scoped Container)
 
 ```ts
-import { createElemental } from 'elementals';
+import { createElemental } from 'elemental-avatars';
 
 // Fullscreen fixed ambient background
 const fx = createElemental({
@@ -68,7 +66,7 @@ const heroFx = createElemental({
 Register once in your entry script:
 
 ```ts
-import 'elementals/web-component';
+import 'elemental-avatars/web-component';
 ```
 
 Then drop `<elemental-fx>` anywhere in HTML:
@@ -111,7 +109,7 @@ Then drop `<elemental-fx>` anywhere in HTML:
 'use client'; // Required in Next.js App Router
 
 import { useEffect, useRef } from 'react';
-import { createElemental } from 'elementals';
+import { createElemental } from 'elemental-avatars';
 
 export function HeroBanner() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -132,7 +130,7 @@ export function HeroBanner() {
   return (
     <section ref={containerRef} style={{ position: 'relative', minHeight: 480 }}>
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <h1>Build with Elementals</h1>
+        <h1>Build with Elemental Avatars</h1>
       </div>
     </section>
   );
@@ -146,7 +144,7 @@ export function HeroBanner() {
 ```vue
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
-import { createElemental, type ElementalController } from 'elementals';
+import { createElemental, type ElementalController } from 'elemental-avatars';
 
 const heroEl = ref<HTMLElement | null>(null);
 let fx: ElementalController | null = null;
@@ -179,7 +177,7 @@ onUnmounted(() => fx?.destroy());
 ```svelte
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { createElemental } from 'elementals';
+  import { createElemental } from 'elemental-avatars';
 
   let host: HTMLElement;
 
@@ -204,11 +202,11 @@ onUnmounted(() => fx?.destroy());
 
 ### 6. Tree-Shakable Subpath Imports (Smallest Bundle)
 
-Only using one or two elements? Import `elementals/core` and only the element(s) you need:
+Only using one or two elements? Import `elemental-avatars/core` and only the element(s) you need:
 
 ```ts
-import { createElemental } from 'elementals/core';
-import { auroraElement } from 'elementals/aurora';
+import { createElemental } from 'elemental-avatars/core';
+import { auroraElement } from 'elemental-avatars/aurora';
 
 const fx = createElemental({
   element: auroraElement,
@@ -216,7 +214,7 @@ const fx = createElemental({
 });
 ```
 
-Available subpaths: `elementals`, `elementals/core`, `elementals/web-component`, `elementals/fire`, `elementals/water`, `elementals/ice`, `elementals/grass`, `elementals/sand`, `elementals/cosmic`, `elementals/lightning`, `elementals/aurora`, `elementals/smoke`, `elementals/void`.
+Available subpaths: `elemental-avatars`, `elemental-avatars/core`, `elemental-avatars/web-component`, `elemental-avatars/fire`, `elemental-avatars/water`, `elemental-avatars/ice`, `elemental-avatars/grass`, `elemental-avatars/sand`, `elemental-avatars/cosmic`, `elemental-avatars/lightning`, `elemental-avatars/aurora`, `elemental-avatars/smoke`, `elemental-avatars/void`.
 
 ---
 
@@ -234,7 +232,7 @@ Every canvas is transparent with `pointer-events: none`, so you can stack 2 or m
 Or in JS/TS:
 
 ```ts
-import { createElemental } from 'elementals';
+import { createElemental } from 'elemental-avatars';
 
 const rain = createElemental({ container: '#hero', element: 'water', preset: 'rain', opacity: 0.75 });
 const storm = createElemental({ container: '#hero', element: 'lightning', preset: 'storm', opacity: 0.9 });

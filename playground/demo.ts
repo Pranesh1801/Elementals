@@ -5,7 +5,7 @@ import {
   type ElementName,
   type ElementalFxElement,
   type ElementalTheme,
-} from 'elementals';
+} from 'elemental-avatars';
 
 registerElementalComponent();
 

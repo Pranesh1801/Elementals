@@ -37,8 +37,8 @@ export function getElementDefinition(nameOrDef: string | ElementDefinition<any>)
     const hint =
       available.length > 0
         ? `Available elements: ${available.join(', ')}`
-        : 'No elements registered yet. Import from "elementals" or call registerElement(...).';
-    throw new Error(`[elementals] Unknown element "${String(nameOrDef)}". ${hint}`);
+        : 'No elements registered yet. Import from "elemental-avatars" or call registerElement(...).';
+    throw new Error(`[elemental-avatars] Unknown element "${String(nameOrDef)}". ${hint}`);
   }
   return def;
 }

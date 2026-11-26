@@ -11,9 +11,9 @@ export default defineConfig({
   root: localPath('./playground'),
   resolve: {
     alias: {
-      'elementals/core': localPath('./src/core.ts'),
-      'elementals/web-component': localPath('./src/web-component-entry.ts'),
-      elementals: localPath('./src/index.ts'),
+      'elemental-avatars/core': localPath('./src/core.ts'),
+      'elemental-avatars/web-component': localPath('./src/web-component-entry.ts'),
+      'elemental-avatars': localPath('./src/index.ts'),
     },
   },
   build: {

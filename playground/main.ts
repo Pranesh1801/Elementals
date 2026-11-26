@@ -7,7 +7,7 @@ import {
   type ElementName,
   type ElementalFxElement,
   type ElementalTheme,
-} from 'elementals';
+} from 'elemental-avatars';
 
 registerElementalComponent();
 
@@ -269,7 +269,7 @@ function renderSnippet(): void {
 
   if (codeTab === 'js') {
     const lines = [
-      `import { createElemental } from 'elementals';`,
+      `import { createElemental } from 'elemental-avatars';`,
       ``,
       `const fx = createElemental({`,
       `  element: '${currentElement}',`,
@@ -299,7 +299,7 @@ function renderSnippet(): void {
       ...(interactive && sensitivity !== 1 ? [`interaction-strength="${sensitivity}"`] : []),
       ...(customColors ? [`colors="${customColors.join(',')}"`] : []),
     ];
-    codeOutput.textContent = `import 'elementals/web-component';\n\n<elemental-fx ${attrs.join(' ')}></elemental-fx>`;
+    codeOutput.textContent = `import 'elemental-avatars/web-component';\n\n<elemental-fx ${attrs.join(' ')}></elemental-fx>`;
   }
 }
 

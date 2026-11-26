@@ -16,10 +16,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "paths": {
-      "elementals": ["./src/index.ts"],
-      "elementals/core": ["./src/core.ts"],
-      "elementals/web-component": ["./src/web-component-entry.ts"],
-      "elementals/*": ["./src/elements/*.ts"]
+      "elemental-avatars": ["./src/index.ts"],
+      "elemental-avatars/core": ["./src/core.ts"],
+      "elemental-avatars/web-component": ["./src/web-component-entry.ts"],
+      "elemental-avatars/*": ["./src/elements/*.ts"]
     }
   },
   "include": ["src", "playground", "tests", "*.config.ts"]

@@ -1,5 +1,5 @@
 {
-  "name": "elementals",
+  "name": "elemental-avatars",
   "version": "1.0.0",
   "description": "Lightweight, zero-dependency Canvas 2D elemental effects (fire, water, ice, grass, sand, cosmic, lightning, aurora, smoke, void) with customizable presets, subpath exports, and a drop-in Web Component.",
   "author": {
@@ -16,6 +16,7 @@
     "url": "https://github.com/Pranesh1801/Elementals/issues"
   },
   "keywords": [
+    "elemental-avatars",
     "canvas",
     "particles",
     "effects",
@@ -180,7 +181,8 @@
         "types": "./dist/elements/void.d.cts",
         "default": "./dist/elements/void.cjs"
       }
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",
